@@ -1,0 +1,60 @@
+.tableImage {
+    width: 100%;
+    height: 100%;
+    padding: 0;
+    margin: 0;
+    background: url('@/assets/img/background.jpg');
+    /* background: url('../img/banner.jpg'); */
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+}
+
+.myTransparent {
+    background: rgba(225, 220, 217, 0.2);
+}
+
+.navBarTransparent{
+    background: rgba(50, 67, 95, 0.5);
+}
+
+.justTransparent{
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.mushroomColor{
+    background-color: black;
+}
+.elephantColor{
+    background-color: #36454F;
+}
+.thatchColor{
+    background-color: #3D223C;
+}
+.gunmetalColor{
+    background-color: #223127;
+}
+
+.titleFontColor{
+    color: #E0E3E7;
+    text-shadow: 2px 2px 2px #B7CBBF;
+}
+.contentfontColor{
+    color: #B7CBBF;
+}
+
+.mushroomFontColor{
+    color:#B7CBBF;
+}
+
+.gap-20{
+    gap: 20px;
+}
+
+.swal2-cancel,.swal2-confirm{
+    color:white;
+}
+
+.v-selection-control__input{
+    color:blue;
+}
