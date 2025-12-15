@@ -1,28 +1,28 @@
 <template>
   <nav class="nav">
 
-    <v-navigation-drawer app temporary v-model="drawer" location="right" color="rgba(50, 67, 95, 0.8)">
-      <v-list-item-title class="text-center text-white my-2">功能選擇</v-list-item-title>
-      <v-divider color="white"></v-divider>
+    <v-navigation-drawer app temporary v-model="drawer" location="right" class="navbar-drawer">
+      <v-list-item-title class="text-center text-white my-2" style="text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">功能選擇</v-list-item-title>
+      <v-divider style="border-color: rgba(255, 255, 255, 0.1);"></v-divider>
 
       <v-list density="compact" nav>
         <v-list-item v-for="item in items" :key="item.label" :to="item.route" v-show="checkAuth(item.authKey)">
           <template v-slot:prepend>
-            <v-icon color="yellow">{{ item.icon }}</v-icon>
+            <v-icon color="white">{{ item.icon }}</v-icon>
           </template>
-          <v-list-item-title class="text-yellow" style="font-size:1rem;">{{ item.label }}</v-list-item-title>
+          <v-list-item-title class="text-white" style="font-size:1rem; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">{{ item.label }}</v-list-item-title>
         </v-list-item>
 
         <v-list-item @click="logout">
           <template v-slot:prepend>
-            <v-icon color="yellow">mdi-logout</v-icon>
+            <v-icon color="white">mdi-logout</v-icon>
           </template>
-          <v-list-item-title class="text-yellow" style="font-size:1rem;">登出</v-list-item-title>
+          <v-list-item-title class="text-white" style="font-size:1rem; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);">登出</v-list-item-title>
         </v-list-item>
       </v-list>
     </v-navigation-drawer>
 
-    <v-app-bar color="rgba(50, 67, 95, 0.8)" app fixed class="align-center">
+    <v-app-bar app fixed class="align-center navbar-bar">
       <v-toolbar-title style="cursor: pointer;">
         <router-link to="/main/functionlist" custom v-slot="{ navigate }">
           <div @click="navigate" @keypress.enter="navigate" class="d-flex">
@@ -95,10 +95,36 @@ onMounted(() => {
 </script>
 
 <style lang="scss">
-.v-toolbar__content,
-.v-navigation-drawer {
-  background-image: url("@/assets/BG_top.png");
-  background-repeat: repeat;
+.navbar-bar {
+  background-image: url("@/assets/BG_top.png") !important;
+  background-repeat: repeat !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.navbar-drawer {
+  background-image: url("@/assets/BG_top.png") !important;
+  background-repeat: repeat !important;
+  background-color: rgba(0, 0, 0, 0.7) !important;
+  backdrop-filter: blur(10px) !important;
+  border-left: 1px solid rgba(255, 255, 255, 0.1) !important;
+}
+
+.v-toolbar__content {
+  background: transparent !important;
+}
+
+.v-list-item:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
+}
+
+.v-list-item--active {
+  background: rgba(255, 255, 255, 0.12) !important;
+}
+
+.v-btn:hover {
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 
 .v-snack__content {

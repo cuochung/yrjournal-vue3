@@ -3,7 +3,12 @@
     <div class="d-flex justify-center align-center justTransparent" style="height:100%">
       <v-row class="justify-center" v-if="matchDatabase">
         <v-col cols="11" md="7">
-          <div class="loginCardBg pa-6 rounded" style="color:#32435F">
+          <!-- Logo 區域 -->
+          <div class="banner-top">
+            <v-img :src="bannerImg" alt="" contain class="banner-img"></v-img>
+          </div>
+          
+          <div class="loginCardBg pa-6 rounded">
             <div class="d-flex justify-space-between align-center">
               <div class="text-h7 text-sm-h5 font-weight-bold">
                 {{ store.cData.company_name }} 後台管理系統
@@ -13,7 +18,7 @@
               </div>
             </div>
 
-            <v-divider></v-divider>
+            <v-divider class="my-4" style="border-color: rgba(255, 255, 255, 0.1);"></v-divider>
 
             <v-form class="mt-3" ref="form">
               <v-row>
@@ -25,7 +30,7 @@
                     :rules="emptyRules" 
                     @keyup.enter="checkLogin" 
                     autofocus 
-                    color="#FFFFFF"
+                    color="white"
                   ></v-text-field>
                 </v-col>
                 <v-col cols="12">
@@ -36,12 +41,12 @@
                     v-model="loginForm.password" 
                     :rules="emptyRules" 
                     @keyup.enter="checkLogin"
-                    color="#FFFFFF"
+                    color="white"
                   ></v-text-field>
                 </v-col>
               </v-row>
 
-              <v-btn block class="mt-2 pa-2 white--text" color="#32435F" @click.stop="checkLogin">登入</v-btn>
+              <v-btn block class="mt-2 pa-2 white--text login-btn" @click.stop="checkLogin">登入</v-btn>
 
               <div class="d-flex justify-end mt-2 titleFontColor">
                 <span>{{ store.cData.last_login_time }}</span>
@@ -74,6 +79,8 @@ const { proxy } = getCurrentInstance()
 const store = useStore()
 const router = useRouter()
 const form = ref(null)
+
+import bannerImg from '@/assets/img/banner.jpg'
 
 // 響應式數據
 const matchDatabase = ref(false)
@@ -173,11 +180,139 @@ body::-webkit-scrollbar {
   display: none;
 }
 
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+  width: 100%;
+  max-width: 500px;
+}
+
+.speedometer-arc {
+  width: 100%;
+  max-width: 400px;
+  height: 120px;
+  margin-bottom: -40px;
+  position: relative;
+  z-index: 3;
+}
+
+.arc-svg {
+  width: 100%;
+  height: 100%;
+}
+
+/* 跑車剪影 */
+.car-silhouette {
+  width: 100%;
+  max-width: 300px;
+  height: 100px;
+  margin-bottom: 20px;
+  position: relative;
+  z-index: 4;
+}
+
+.car-svg {
+  width: 100%;
+  height: 100%;
+}
+
+.car-body {
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+}
+
+.brand-name {
+  display: flex;
+  align-items: baseline;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 10px;
+}
+
+.yr-text {
+  font-size: 3rem;
+  font-weight: bold;
+  color: #ff0000;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 2px;
+  font-family: 'Arial', sans-serif;
+}
+
+.journal-text {
+  font-size: 1.8rem;
+  font-weight: 600;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  letter-spacing: 1px;
+  font-family: 'Arial', sans-serif;
+}
+
+.banner-top {
+  width: 100%;
+  max-height: 200px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.banner-img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  object-fit: contain;
+}
+
 .loginCardBg {
-  background: rgba(255, 255, 255, 0.4);
-  /* 深色半透明，可依需求調整 */
-  box-shadow: 0 8px 32px 0 rgba(255, 255, 255, 0.85);
-  backdrop-filter: blur(2px);
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.5);
+  color: white;
+}
+
+.login-btn {
+  background: rgba(255, 255, 255, 0.2) !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+  font-weight: bold !important;
+  transition: all 0.3s ease !important;
+  text-transform: none !important;
+}
+
+.login-btn:hover {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border: 1px solid rgba(255, 255, 255, 0.5) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2) !important;
+}
+
+/* 響應式設計 */
+@media (max-width: 600px) {
+  .logo-section {
+    max-width: 90%;
+    margin-bottom: 30px;
+  }
+
+  .speedometer-arc {
+    max-width: 90%;
+    height: 100px;
+    margin-bottom: -30px;
+  }
+
+  .car-silhouette {
+    max-width: 80%;
+    height: 80px;
+  }
+
+  .yr-text {
+    font-size: 2.2rem;
+  }
+
+  .journal-text {
+    font-size: 1.3rem;
+  }
 }
 
 </style>

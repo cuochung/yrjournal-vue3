@@ -1,5 +1,5 @@
 <template>
-  <div class="main blue-grey lighten-4">
+  <div class="main" style="background-color: #000000;">
     <Navbar />
 
     <router-view v-slot="{ Component }">

@@ -2,7 +2,7 @@ import { defineStore } from 'pinia'
 
 export const useStore = defineStore('company', () => {
   const state = {
-    verMsg: "2025.8.22.1",
+    verMsg: "2025.12.15.1",
     databaseName: "yrjournal", //資料庫名
     // base_url: "http://localhost/vue3vueitfyapi", //localhost測試用
     base_url: "https://www.pddtvgame.com/yrjournalapi", //線上專用指定去讀圖片或其他東西的位置

@@ -53,11 +53,12 @@ const logout = () => {
 
 <style scoped>
 .zoneStyle{
-  transition: transform 0.5s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
   text-align: center;
 }
 .zoneStyle:hover{
   transform: scale(1.05);
+  background: rgba(255, 255, 255, 0.08) !important;
 }
 </style>
