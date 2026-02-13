@@ -39,7 +39,7 @@
                         v-model="isSelectAll" @change="changeState()" width="150" hide-details></v-checkbox>
                     </th>
                     <th class="text-left"><v-icon small color="grey darken-2">mdi-identifier</v-icon> ID</th>
-                    <th class="text-left"><v-icon small color="red darken-2">mdi-alert-circle</v-icon> 黑名單</th>
+                    <th class="text-left"><v-icon small color="purple darken-2">mdi-account-circle</v-icon> IG帳號/FB名字</th>
                     <th class="text-left"><v-icon small color="indigo darken-2">mdi-account</v-icon> 會員名稱</th>
                     <th class="text-left"><v-icon small color="teal darken-2">mdi-cellphone</v-icon> 手機</th>
                     <th class="text-left"><v-icon small color="amber darken-2">mdi-medal</v-icon> 會員等級</th>
@@ -86,7 +86,7 @@
 
                     <td>
                       {{ item.raw.snkey }}</td>
-                    <td><span v-if="item.blacklist" class="red--text">✔</span></td>
+                    <td>{{ item.raw.socialName }}</td>
                     <td>{{ item.raw.name }} {{ item.raw.sex }}</td>
                     <td>{{ item.raw.cellphone }}</td>
                     <td>
