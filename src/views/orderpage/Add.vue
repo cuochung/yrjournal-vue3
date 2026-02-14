@@ -65,19 +65,25 @@
                   <h3 class="info-title">會員資料</h3>
                   <v-divider class="my-3"></v-divider>
                   <v-row class="mt-1">
-                    <v-col cols="12" sm="4">
+                    <v-col cols="12" sm="3">
+                      <h3>
+                        <v-icon color="indigo-darken-2">mdi-identifier</v-icon>
+                        ID：{{ list.customerInfo.snkey || list.customerInfo.id || '-' }}
+                      </h3>
+                    </v-col>
+                    <v-col cols="12" sm="3">
                       <h3>
                         <v-icon color="indigo-darken-2">mdi-account</v-icon>
                         {{ list.customerInfo.name }} {{ list.customerInfo.sex }}
                       </h3>
                     </v-col>
-                    <v-col cols="12" sm="4">
+                    <v-col cols="12" sm="3">
                       <h3>
                         <v-icon color="teal-darken-2">mdi-cellphone</v-icon>
                         {{ list.customerInfo.cellphone }}
                       </h3>
                     </v-col>
-                    <v-col cols="12" sm="4">
+                    <v-col cols="12" sm="3">
                       <h3>
                         <v-icon color="amber-darken-2">mdi-medal</v-icon>
                         {{ list.customerInfo.level }}
